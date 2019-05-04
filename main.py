@@ -6,6 +6,9 @@ lista_diferenca = []
 lista_diferenca2 = []
 lista_diferenca_final = []
 lista_final = []
+lista_final2 = []
+lista_final3 = []
+lista_final4 = []
 lista_soma = []
 
 for linha in manipulador:
@@ -64,7 +67,7 @@ for x in lista_impar:
     f.close()
 
 print("a1 = " + str(lista_final))
-print("d1 = " + str(lista_diferenca_final))
+#print("d1 = " + str(lista_diferenca_final))
 
 
 for a, b in zip(lista_final, lista_diferenca_final):
@@ -74,3 +77,282 @@ for a, b in zip(lista_final, lista_diferenca_final):
     lista_soma.append(a + b)
 
 print("s1 = a1 + d1 => " + str(lista_soma))
+
+
+#Decomposição grau 2
+lista_impar2 = lista_final[::2]
+#print(lista_impar2)
+
+#limpando lista media
+lista_media.clear()
+
+#limpando lista diferenca
+lista_diferenca.clear()
+lista_diferenca2.clear()
+lista_diferenca_final.clear()
+
+for i in range(0, len(lista_impar2) - 1):
+
+    media = (lista_impar2[i] + lista_impar2[i+1]) / 2
+    diferenca1 = (lista_impar2[i] - lista_impar2[i+1]) / 2
+    diferenca2 = (lista_impar2[i+1] - lista_impar2[i]) / 2
+
+    #Soma as posições i e i+1
+    lista_media.append(media)
+    #Diferença das posições i e i+1
+    lista_diferenca.append(diferenca1)
+    #Diferença das posições i+1 e i
+    lista_diferenca2.append(diferenca2)
+
+
+#limpando lista impar 2
+lista_impar2.clear()
+
+#limpando lista impar diferenca
+lista_impar_diferenca1.clear()
+lista_impar_diferenca2.clear()
+
+lista_impar2 = lista_media[::2]
+lista_impar_diferenca1 = lista_diferenca[::2]
+lista_impar_diferenca2 = lista_diferenca2[::2]
+
+#print(lista_impar2)
+for x in lista_impar2:
+    lista_final2.append(x)
+    lista_final2.append(x)
+    lista_final2.append(x)
+    lista_final2.append(x)
+    f = open('arqListaMedia2.txt', 'a+')
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.close()
+
+print("a2 = " + str(lista_final2))
+
+for a, b in zip(lista_impar_diferenca1, lista_impar_diferenca2):
+    f = open('arqListaDif2.txt', 'a+')
+    f.write(str(a) + "\n")
+    f.write(str(a) + "\n")
+    f.write(str(b) + "\n")
+    f.write(str(b) + "\n")
+    f.close()
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(b)
+    lista_diferenca_final.append(b)
+
+print("d2 = " + str(lista_diferenca_final))
+
+
+#Decomposição grau 3
+#limpando lista media
+lista_media.clear()
+
+#limpando lista diferenca
+lista_diferenca.clear()
+lista_diferenca2.clear()
+lista_diferenca_final.clear()
+
+lista_media = lista_final2[::2]
+#print(lista_media)
+
+lista_impar3 = lista_media[::2]
+
+#limpando lista media
+lista_media.clear()
+for i in range(0, len(lista_impar3) - 1):
+
+    media = (lista_impar3[i] + lista_impar3[i+1]) / 2
+    diferenca1 = (lista_impar3[i] - lista_impar3[i+1]) / 2
+    diferenca2 = (lista_impar3[i+1] - lista_impar3[i]) / 2
+
+    #Soma as posições i e i+1
+    lista_media.append(media)
+    #Diferença das posições i e i+1
+    lista_diferenca.append(diferenca1)
+    #Diferença das posições i+1 e i
+    lista_diferenca2.append(diferenca2)
+
+
+#limpando lista impar 2
+lista_impar3.clear()
+#limpando lista impar diferenca
+lista_impar_diferenca1.clear()
+lista_impar_diferenca2.clear()
+
+lista_impar3 = lista_media[::2]
+lista_impar_diferenca1 = lista_diferenca[::2]
+lista_impar_diferenca2 = lista_diferenca2[::2]
+
+#print(lista_impar3)
+for x in lista_impar3:
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    lista_final3.append(x)
+    f = open('arqListaMedia3.txt', 'a+')
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.write(str(x) + "\n")
+    f.close()
+
+print("a3 = " + str(lista_final3))
+
+for a, b in zip(lista_impar_diferenca1, lista_impar_diferenca2):
+    f = open('arqListaDif3.txt', 'a+')
+    f.write(str(a) + "\n")
+    f.write(str(a) + "\n")
+    f.write(str(a) + "\n")
+    f.write(str(a) + "\n")
+    f.write(str(b) + "\n")
+    f.write(str(b) + "\n")
+    f.write(str(b) + "\n")
+    f.write(str(b) + "\n")
+    f.close()
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(a)
+    lista_diferenca_final.append(b)
+    lista_diferenca_final.append(b)
+    lista_diferenca_final.append(b)
+    lista_diferenca_final.append(b)
+
+print("d3 = " + str(lista_diferenca_final))
+
+#Decomposição grau 4
+
+#limpando lista media
+#lista_media.clear()
+
+#limpando lista diferenca
+#lista_diferenca.clear()
+#lista_diferenca2.clear()
+#lista_diferenca_final.clear()
+
+#lista_impar4 = lista_final3[::2]
+#print(lista_impar4)
+
+#lista_media = lista_impar4[::2]
+#print(lista_media)
+
+##limpando lista impar 4
+#lista_impar4.clear()
+
+#lista_impar4 = lista_media[::2]
+
+#limpando lista media
+#lista_media.clear()
+
+#for i in range(0, len(lista_impar4) - 1):
+
+#    media = (lista_impar4[i] + lista_impar4[i+1]) / 2
+#    diferenca1 = (lista_impar4[i] - lista_impar4[i+1]) / 2
+#    diferenca2 = (lista_impar4[i+1] - lista_impar4[i]) / 2
+
+    #Soma as posições i e i+1
+#    lista_media.append(media)
+    #Diferença das posições i e i+1
+#    lista_diferenca.append(diferenca1)
+    #Diferença das posições i+1 e i
+#    lista_diferenca2.append(diferenca2)
+
+
+#limpando lista impar 4
+#lista_impar4.clear()
+#lista_impar_diferenca1.clear()
+#lista_impar_diferenca2.clear()
+
+#lista_impar4 = lista_media[::2]
+#lista_impar_diferenca1 = lista_diferenca[::2]
+#lista_impar_diferenca2 = lista_diferenca2[::2]
+
+#lista_final4.clear()
+
+#for x in lista_impar4:
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    lista_final4.append(x)
+#    f = open('arqListaMedia4.txt', 'a+')
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+#    f.write(str(x) + "\n")
+ #   f.write(str(x) + "\n")
+ #   f.write(str(x) + "\n")
+ #   f.write(str(x) + "\n")
+ #   f.write(str(x) + "\n")
+ #   f.write(str(x) + "\n")
+ #   f.close()
+
+#print("a4 = " + str(lista_final4))
+
+
+#for a, b in zip(lista_impar_diferenca1, lista_impar_diferenca2):
+#    f = open('arqListaDif4.txt', 'a+')
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(a) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.write(str(b) + "\n")
+#    f.close()
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(a)
+#    lista_diferenca_final.append(b)
+#    lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+ #   lista_diferenca_final.append(b)
+
+#xprint("d4 = " + str(lista_diferenca_final))
