@@ -7,7 +7,9 @@ processamento de sinais, processamento de imagem, equações diferenciais, entre
 
 O Esquema Lifting, desenvolvido por Sweldens (1997), é facilmente implementado em qualquer linguagem de programação e pode ser utilizado para auxiliar na convolução dos coeficientes de aproximação e dos detalhes de um sinal. Sejam a e b dois números consecutivos de uma amostra de tamanho 2^n, pode-se fazer uma transformação linear, tal que, substituiremos a e b pela sua média s e por sua diferença d: 
 
-s = (a + b) / 2      e      d = b − a.
+s = (a + b) / 2      
+
+d = b − a.
 
 _______________________________________________________________________________________________________________________________________
 
