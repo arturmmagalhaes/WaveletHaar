@@ -1,4 +1,6 @@
-manipulador = open('dadosS1-eth1.txt', 'r')
+import matplotlib.pyplot as plt
+
+manipulador = open('dados.txt', 'r')
 l = []
 i = 0
 lista_media = []
@@ -344,3 +346,17 @@ for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
     f.close()
 
 print("d6 = " + str(lista_diferenca_final))
+
+plt.subplot(611)
+plt.plot(lista_final)
+plt.subplot(612)
+plt.plot(lista_final2)
+plt.subplot(613)
+plt.plot(lista_final3)
+plt.subplot(614)
+plt.plot(lista_final4)
+plt.subplot(615)
+plt.plot(lista_final5)
+plt.subplot(616)
+plt.plot(lista_final6)
+plt.show()
