@@ -12,8 +12,6 @@ def waveletHaar(lista):
         lista_diferenca.append(diferenca1)
         # Diferença das posições i+1 e i
         lista_diferenca2.append(diferenca2)
-#Pega as posições necessárias para o cálculo das wavelets -> [::2}
-#ex: 1 e 2; 3 e 4; 5 e 6; ...
 
 
 manipulador = open('dados.txt', 'r')
@@ -44,6 +42,8 @@ print("Sinal original: " + str(l))
 
 waveletHaar(l)
 
+#Pega as posições necessárias para o cálculo das wavelets -> [::2}
+#ex: 1 e 2; 3 e 4; 5 e 6; ...
 for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
     f = open('arqListaDif.txt', 'a+')
     f.write(str(a) + "\n")
