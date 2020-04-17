@@ -1,5 +1,21 @@
 import matplotlib.pyplot as plt
 
+def waveletHaar(lista):
+    for i in range(0, len(lista) - 1):
+        media = (lista[i] + lista[i + 1]) / 2
+        diferenca1 = (lista[i] - lista[i + 1]) / 2
+        diferenca2 = (lista[i + 1] - lista[i]) / 2
+
+        # Soma as posições i e i+1
+        lista_media.append(media)
+        # Diferença das posições i e i+1
+        lista_diferenca.append(diferenca1)
+        # Diferença das posições i+1 e i
+        lista_diferenca2.append(diferenca2)
+#Pega as posições necessárias para o cálculo das wavelets -> [::2}
+#ex: 1 e 2; 3 e 4; 5 e 6; ...
+
+
 manipulador = open('dados.txt', 'r')
 l = []
 i = 0
@@ -26,22 +42,7 @@ manipulador.seek(0)
 
 print("Sinal original: " + str(l))
 
-for i in range(0, len(l) - 1):
-
-    media = (l[i] + l[i+1]) / 2
-    diferenca1 = (l[i] - l[i+1]) / 2
-    diferenca2 = (l[i+1] - l[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
-
-#Pega as posições necessárias para o cálculo das wavelets -> [::2}
-#ex: 1 e 2; 3 e 4; 5 e 6; ...
-
+waveletHaar(l)
 
 for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
     f = open('arqListaDif.txt', 'a+')
@@ -83,17 +84,7 @@ lista_diferenca.clear()
 lista_diferenca2.clear()
 lista_diferenca_final.clear()
 
-for i in range(0, len(lista_intermediaria) - 1):
-    media = (lista_intermediaria[i] + lista_intermediaria[i+1]) / 2
-    diferenca1 = (lista_intermediaria[i] - lista_intermediaria[i+1]) / 2
-    diferenca2 = (lista_intermediaria[i+1] - lista_intermediaria[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
+waveletHaar(lista_intermediaria)
 
 #limpando lista_intermediaria
 lista_intermediaria.clear()
@@ -137,19 +128,7 @@ lista_diferenca.clear()
 lista_diferenca2.clear()
 lista_diferenca_final.clear()
 
-for i in range(0, len(lista_intermediaria) - 1):
-
-    media = (lista_intermediaria[i] + lista_intermediaria[i+1]) / 2
-    diferenca1 = (lista_intermediaria[i] - lista_intermediaria[i+1]) / 2
-    diferenca2 = (lista_intermediaria[i+1] - lista_intermediaria[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
-
+waveletHaar(lista_intermediaria)
 
 #limpando lista_intermediaria
 lista_intermediaria.clear()
@@ -194,18 +173,7 @@ lista_diferenca.clear()
 lista_diferenca2.clear()
 lista_diferenca_final.clear()
 
-for i in range(0, len(lista_intermediaria) - 1):
-
-    media = (lista_intermediaria[i] + lista_intermediaria[i+1]) / 2
-    diferenca1 = (lista_intermediaria[i] - lista_intermediaria[i+1]) / 2
-    diferenca2 = (lista_intermediaria[i+1] - lista_intermediaria[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
+waveletHaar(lista_intermediaria)
 
 lista_intermediaria.clear()
 
@@ -248,18 +216,7 @@ lista_diferenca.clear()
 lista_diferenca2.clear()
 lista_diferenca_final.clear()
 
-for i in range(0, len(lista_intermediaria) - 1):
-
-    media = (lista_intermediaria[i] + lista_intermediaria[i+1]) / 2
-    diferenca1 = (lista_intermediaria[i] - lista_intermediaria[i+1]) / 2
-    diferenca2 = (lista_intermediaria[i+1] - lista_intermediaria[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
+waveletHaar(lista_intermediaria)
 
 #limpando lista_intermediaria
 lista_intermediaria.clear()
@@ -303,18 +260,7 @@ lista_diferenca.clear()
 lista_diferenca2.clear()
 lista_diferenca_final.clear()
 
-for i in range(0, len(lista_intermediaria) - 1):
-
-    media = (lista_intermediaria[i] + lista_intermediaria[i+1]) / 2
-    diferenca1 = (lista_intermediaria[i] - lista_intermediaria[i+1]) / 2
-    diferenca2 = (lista_intermediaria[i+1] - lista_intermediaria[i]) / 2
-
-    #Soma as posições i e i+1
-    lista_media.append(media)
-    #Diferença das posições i e i+1
-    lista_diferenca.append(diferenca1)
-    #Diferença das posições i+1 e i
-    lista_diferenca2.append(diferenca2)
+waveletHaar(lista_intermediaria)
 
 #limpando lista_intermediaria
 lista_intermediaria.clear()
