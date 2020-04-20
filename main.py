@@ -13,6 +13,127 @@ def waveletHaar(lista):
         # Diferença das posições i+1 e i
         lista_diferenca2.append(diferenca2)
 
+def armazenar_lista_dif(n, lista_diferenca, lista_diferenca2):
+    for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
+        if n == 1:
+            f = open('ListaDifereca1.txt', 'a+')
+            f.write(str(a) + "\n")
+            f.write(str(b) + "\n")
+            f.close()
+            lista_diferenca_final.append(a)
+            lista_diferenca_final.append(b)
+        elif n == 2:
+            i = 1
+            j = 1
+            while i <= 2:
+                f = open('ListaDifereca2.txt', 'a+')
+                f.write(str(a) + "\n")
+                lista_diferenca_final.append(a)
+                i += 1
+            while j <= 2:
+                f.write(str(b) + "\n")
+                lista_diferenca_final.append(b)
+                j += 1
+            f.close()
+        elif n == 3:
+            i = 1
+            j = 1
+            while i <= 4:
+                f = open('ListaDifereca3.txt', 'a+')
+                f.write(str(a) + "\n")
+                lista_diferenca_final.append(a)
+                i += 1
+            while j <= 4:
+                f.write(str(b) + "\n")
+                lista_diferenca_final.append(b)
+                j += 1
+            f.close()
+        elif n == 4:
+            i = 1
+            j = 1
+            while i <= 8:
+                f = open('ListaDifereca4.txt', 'a+')
+                f.write(str(a) + "\n")
+                lista_diferenca_final.append(a)
+                i += 1
+            while j <= 8:
+                f.write(str(b) + "\n")
+                lista_diferenca_final.append(b)
+                j += 1
+            f.close()
+        elif n == 5:
+            i = 1
+            j = 1
+            while i <= 16:
+                f = open('ListaDifereca5.txt', 'a+')
+                f.write(str(a) + "\n")
+                lista_diferenca_final.append(a)
+                i += 1
+            while j <= 16:
+                f.write(str(b) + "\n")
+                lista_diferenca_final.append(b)
+                j += 1
+            f.close()
+        elif n == 6:
+            i = 1
+            j = 1
+            while i <= 32:
+                f = open('ListaDifereca6.txt', 'a+')
+                f.write(str(a) + "\n")
+                lista_diferenca_final.append(a)
+                i += 1
+            while j <= 32:
+                f.write(str(b) + "\n")
+                lista_diferenca_final.append(b)
+                j += 1
+            f.close()
+
+def armazenar_lista_med(n, lista_media):
+    for x in lista_media[::2]:
+        lista_intermediaria.append(x)
+        i = 1
+        if n == 1:
+            f = open('ListaMedia1.txt', 'a+')
+            while i <= 2:
+                lista_final.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
+        elif n == 2:
+            f = open('ListaMedia2.txt', 'a+')
+            while i <= 4:
+                lista_final2.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
+        elif n == 3:
+            f = open('ListaMedia3.txt', 'a+')
+            while i <= 8:
+                lista_final3.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
+        elif n == 4:
+            f = open('ListaMedia4.txt', 'a+')
+            while i <= 16:
+                lista_final4.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
+        elif n == 5:
+            f = open('ListaMedia5.txt', 'a+')
+            while i <= 32:
+                lista_final5.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
+        elif n == 6:
+            f = open('ListaMedia6.txt', 'a+')
+            while i <= 64:
+                lista_final6.append(x)
+                f.write(str(x) + "\n")
+                i += 1
+            f.close()
 
 manipulador = open('dados.txt', 'r')
 l = []
@@ -36,40 +157,18 @@ for linha in manipulador:
 
 manipulador.seek(0)
 
+
 #DECOMPOSIÇÃO GRAU 1
 
 print("Sinal original: " + str(l))
 
 waveletHaar(l)
 
-#Pega as posições necessárias para o cálculo das wavelets -> [::2}
-#ex: 1 e 2; 3 e 4; 5 e 6; ...
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif.txt', 'a+')
-    f.write(str(a) + "\n")
-    f.write(str(b) + "\n")
-    f.close()
-    lista_diferenca_final.append(a)
-    lista_diferenca_final.append(b)
+armazenar_lista_med(1, lista_media)
 
-
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia.txt', 'a+')
-    i = 1
-    while i<=2:
-        lista_final.append(x)
-        f.write(str(x) + "\n")
-        i+=1
-    f.close()
+armazenar_lista_dif(1, lista_diferenca, lista_diferenca2)
 
 print("a1 = " + str(lista_final))
-
-for a, b in zip(lista_final, lista_diferenca_final):
-    f = open('arqSoma.txt', 'a+')
-    f.write(str(a + b) + "\n")
-    f.close()
-    lista_soma.append(a + b)
 
 print("d1 = " + str(lista_diferenca_final))
 
@@ -89,31 +188,11 @@ waveletHaar(lista_intermediaria)
 #limpando lista_intermediaria
 lista_intermediaria.clear()
 
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia2.txt', 'a+')
-    i = 1
-    while i <= 4:
-        lista_final2.append(x)
-        f.write(str(x) + "\n")
-        i+=1
-    f.close()
+armazenar_lista_med(2, lista_media)
+
+armazenar_lista_dif(2, lista_diferenca, lista_diferenca2)
 
 print("a2 = " + str(lista_final2))
-
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif2.txt', 'a+')
-    i = 1
-    j = 1
-    while i <= 2:
-        f.write(str(a) + "\n")
-        lista_diferenca_final.append(a)
-        i+=1
-    while j <= 2:
-        f.write(str(b) + "\n")
-        lista_diferenca_final.append(b)
-        j+=1
-    f.close()
 
 print("d2 = " + str(lista_diferenca_final))
 
@@ -133,32 +212,11 @@ waveletHaar(lista_intermediaria)
 #limpando lista_intermediaria
 lista_intermediaria.clear()
 
+armazenar_lista_med(3, lista_media)
 
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia3.txt', 'a+')
-    i=1
-    while i<=8:
-        lista_final3.append(x)
-        f.write(str(x) + "\n")
-        i+=1
-    f.close()
+armazenar_lista_dif(3, lista_diferenca, lista_diferenca2)
 
 print("a3 = " + str(lista_final3))
-
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif3.txt', 'a+')
-    i = 1
-    j = 1
-    while i <= 4:
-        f.write(str(a) + "\n")
-        lista_diferenca_final.append(a)
-        i+=1
-    while j <= 4:
-        f.write(str(b) + "\n")
-        lista_diferenca_final.append(b)
-        j+=1
-    f.close()
 
 print("d3 = " + str(lista_diferenca_final))
 
@@ -175,33 +233,14 @@ lista_diferenca_final.clear()
 
 waveletHaar(lista_intermediaria)
 
+#limpando lista_intermediaria
 lista_intermediaria.clear()
 
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia4.txt', 'a+')
-    i=1
-    while i <= 16:
-        lista_final4.append(x)
-        f.write(str(x) + "\n")
-        i+=1
-    f.close()
+armazenar_lista_med(4, lista_media)
+
+armazenar_lista_dif(4, lista_diferenca, lista_diferenca2)
 
 print("a4 = " + str(lista_final4))
-
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif4.txt', 'a+')
-    i=1
-    j=1
-    while i <= 8:
-        f.write(str(a) + "\n")
-        lista_diferenca_final.append(a)
-        i+=1
-    while j <= 8:
-        f.write(str(b) + "\n")
-        lista_diferenca_final.append(b)
-        j+=1
-    f.close()
 
 print("d4 = " + str(lista_diferenca_final))
 
@@ -221,31 +260,12 @@ waveletHaar(lista_intermediaria)
 #limpando lista_intermediaria
 lista_intermediaria.clear()
 
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia5.txt', 'a+')
-    i=1
-    while i <= 32:
-        lista_final5.append(x)
-        f.write(str(x) + "\n")
-        i+=1
-    f.close()
+armazenar_lista_med(5, lista_media)
+
+armazenar_lista_dif(5, lista_diferenca, lista_diferenca2)
 
 print("a5 = " + str(lista_final5))
 
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif5.txt', 'a+')
-    i = 1
-    j = 1
-    while i <= 16:
-        f.write(str(a) + "\n")
-        lista_diferenca_final.append(a)
-        i += 1
-    while j <= 16:
-        f.write(str(b) + "\n")
-        lista_diferenca_final.append(b)
-        j += 1
-    f.close()
 
 print("d5 = " + str(lista_diferenca_final))
 
@@ -265,31 +285,11 @@ waveletHaar(lista_intermediaria)
 #limpando lista_intermediaria
 lista_intermediaria.clear()
 
-for x in lista_media[::2]:
-    lista_intermediaria.append(x)
-    f = open('arqListaMedia6.txt', 'a+')
-    i = 1
-    while i <= 64:
-        lista_final6.append(x)
-        f.write(str(x) + "\n")
-        i += 1
-    f.close()
+armazenar_lista_med(6, lista_media)
+
+armazenar_lista_dif(6, lista_diferenca, lista_diferenca2)
 
 print("a6 = " + str(lista_final6))
-
-for a, b in zip(lista_diferenca[::2], lista_diferenca2[::2]):
-    f = open('arqListaDif6.txt', 'a+')
-    i = 1
-    j = 1
-    while i <= 32:
-        f.write(str(a) + "\n")
-        lista_diferenca_final.append(a)
-        i += 1
-    while j <= 32:
-        f.write(str(b) + "\n")
-        lista_diferenca_final.append(b)
-        j += 1
-    f.close()
 
 print("d6 = " + str(lista_diferenca_final))
 
